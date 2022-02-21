@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaamelotSampler.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace KaamelotSampler
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ListeSaamplesPage();
         }
 
         protected override void OnStart()
