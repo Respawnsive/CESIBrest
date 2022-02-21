@@ -1,0 +1,9 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/KaamelotSampler/.vs/KaamelotSampler/v16
+/KaamelotSampler/KaamelotSampler/obj
+/KaamelotSampler/KaamelotSampler.Android/obj
+/KaamelotSampler/KaamelotSampler.iOS/obj
