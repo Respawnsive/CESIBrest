@@ -123,8 +123,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -132,5 +135,158 @@
       <Project>{FB0A49FD-59FA-4812-A070-85017FBE82A0}</Project>
       <Name>KaamelotSampler</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\angharad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arthur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arthurleroiburgonde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\attila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bohort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\breccan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\caius.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dagonet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demetra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\elias.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\eliasdekelliwich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guenievre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guethenoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_play_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_share_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kadoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\karadoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ladamedulac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lancelot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemaitredarmes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\leodagan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lerepurgateur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\letavernier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\levequeboniface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\linterprete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\merlin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\perceval.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\roparzh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ropharz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\venec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yvain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Implementations\" />
   </ItemGroup>
 </Project>

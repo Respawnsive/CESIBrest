@@ -4,6 +4,9 @@
 
 /.vs
 /KaamelotSampler/.vs/KaamelotSampler/v16
+/KaamelotSampler/KaamelotSampler/bin
 /KaamelotSampler/KaamelotSampler/obj
+/KaamelotSampler/KaamelotSampler.Android/bin
 /KaamelotSampler/KaamelotSampler.Android/obj
+/KaamelotSampler/KaamelotSampler.iOS/bin
 /KaamelotSampler/KaamelotSampler.iOS/obj
