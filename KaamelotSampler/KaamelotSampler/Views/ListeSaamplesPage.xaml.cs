@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaamelotSampler.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace KaamelotSampler.Views
         public ListeSaamplesPage()
         {
             InitializeComponent();
+            BindingContext = new ListeSaamplesPageViewModel();
         }
     }
 }
