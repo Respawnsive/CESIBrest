@@ -1,37 +1,41 @@
 ﻿using KaamelotSampler.Interfaces;
 using KaamelotSampler.Models;
 using KaamelotSampler.Services;
+using KaamelotSampler.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace KaamelotSampler.ViewModels
 {
     public class ListeSaamplesPageViewModel : BaseViewModel
     {
-        public ListeSaamplesPageViewModel()
+        private List<Saample> AllSamples;
+        private INavigation NavigationService;
+
+        public ListeSaamplesPageViewModel(INavigation navigationService)
         {
-            LoadDatas();
-            SelectSaampleCommand = new Command(SelectSaample);
+            SelectSaampleCommand = new Command(async() => await SelectSaample());
             ClearPersoCommand = new Command(ClearSelectedPerso);
+            NavigationService = navigationService;
+            Task.Run(async() => await LoadDatas());
         }
 
         #region Bindable Properties
 
-        private List<Saample> AllSamples;
-
-        private List<Saample> listSaamples;
-        public List<Saample> ListSaamples
+        private List<Saample> filteredSaamples;
+        public List<Saample> FilteredSaamples
         {
             get 
             { 
-                return listSaamples; 
+                return filteredSaamples; 
             }
             set 
             { 
-                listSaamples = value;
+                filteredSaamples = value;
                 OnPropertyChanged();
             }
         }
@@ -82,6 +86,18 @@ namespace KaamelotSampler.ViewModels
             }
         }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set 
+            { 
+                isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region Bindable Commands
@@ -93,21 +109,22 @@ namespace KaamelotSampler.ViewModels
 
         #region Private methods
 
-        private void LoadDatas()
+        private async Task LoadDatas()
         {
+            IsBusy = true;
             DataService datas = new DataService();
-            AllSamples = ListSaamples = datas.GetSaamplesFromLocalJson();
+            FilteredSaamples = AllSamples = await datas.GetSaamplesFromLocalJsonAsync();
             ListPersos = AllSamples
                 .Select(x => x.Personnage)
                 .Distinct()
                 .OrderBy(x => x)
-                .ToList(); 
+                .ToList();
+            IsBusy = false;
         }
 
-        private void SelectSaample(object obj)
+        private async Task SelectSaample()
         {
-            var audioService = DependencyService.Get<IAudioService>();
-            audioService.PlayMp3(SelectedSaample.Mp3File);
+            await NavigationService.PushAsync(new DetailSaamplePage(SelectedSaample));
         }
 
         private void FilterSaamples(string searchedText, string personnage)
@@ -115,24 +132,24 @@ namespace KaamelotSampler.ViewModels
             if (String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
             {
                 //RAZ
-                ListSaamples = AllSamples;
+                FilteredSaamples = AllSamples.OrderBy(x=> x.Episode).ToList();
             }
             else if (!String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
             {
                 //uniquement searchtext
-                ListSaamples = AllSamples.Where(x => x.Tirade.ToLower().Contains(searchedText.ToLower())).ToList();
+                FilteredSaamples = AllSamples.Where(x => x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
             }
             else if (String.IsNullOrWhiteSpace(searchedText) && !String.IsNullOrWhiteSpace(personnage))
             {
                 //uniquement personnage
-                ListSaamples = AllSamples.Where(x => x.Personnage == personnage).ToList();
+                FilteredSaamples = AllSamples.Where(x => x.Personnage == personnage).OrderBy(x => x.Episode).ToList();
             }
             else
             {
                 //Searchtext ET personnage
-                ListSaamples = AllSamples
+                FilteredSaamples = AllSamples
                     .Where(x => x.Personnage == personnage 
-                            && x.Tirade.ToLower().Contains(searchedText.ToLower())).ToList();
+                            && x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
             }
         }
 

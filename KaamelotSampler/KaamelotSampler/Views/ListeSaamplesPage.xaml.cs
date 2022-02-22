@@ -16,7 +16,8 @@ namespace KaamelotSampler.Views
         public ListeSaamplesPage()
         {
             InitializeComponent();
-            BindingContext = new ListeSaamplesPageViewModel();
+            BindingContext = new ListeSaamplesPageViewModel(Navigation);
+            
         }
     }
 }

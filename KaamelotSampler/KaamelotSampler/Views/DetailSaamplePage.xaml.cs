@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KaamelotSampler.Models;
+using KaamelotSampler.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace KaamelotSampler.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailSaamplePage : ContentPage
     {
-        public DetailSaamplePage()
+        public DetailSaamplePage(Saample saample)
         {
             InitializeComponent();
+            BindingContext = new DetailSaamplePageViewModel(Navigation, saample);
         }
     }
 }

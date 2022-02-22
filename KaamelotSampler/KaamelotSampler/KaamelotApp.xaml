@@ -1,8 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KaamelotSampler.KaamelotApp">
+<Application
+    x:Class="KaamelotSampler.KaamelotApp"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
+        <Color x:Key="PrimaryColor">#2D3CB8</Color>
+        <Color x:Key="SecondaryColor">#BB9824</Color>
+        <Color x:Key="BackgroundColor">#4C4D51</Color>
+        <Color x:Key="TextColor">#ECEDF1</Color>
+
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="BorderColor" Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        </Style>
 
     </Application.Resources>
 </Application>

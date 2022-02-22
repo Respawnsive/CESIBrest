@@ -26,13 +26,20 @@
                     Grid.Column="1"
                     ItemsSource="{Binding ListPersos}"
                     SelectedItem="{Binding SelectedPerso}" />
-                <Button Grid.Column="2"
-                        Text="X"
-                        Command="{Binding ClearPersoCommand}"/>
+                <Button
+                    Grid.Column="2"
+                    Command="{Binding ClearPersoCommand}"
+                    Text="X" />
             </Grid>
+            <ActivityIndicator
+                HeightRequest="80"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                WidthRequest="80"
+                Color="Red" />
             <CollectionView
                 HorizontalOptions="Fill"
-                ItemsSource="{Binding ListSaamples}"
+                ItemsSource="{Binding FilteredSaamples}"
                 SelectedItem="{Binding SelectedSaample}"
                 SelectionChangedCommand="{Binding SelectSaampleCommand}"
                 SelectionMode="Single"
@@ -49,7 +56,8 @@
                                 Grid.Column="0"
                                 Aspect="AspectFit"
                                 HeightRequest="80"
-                                Source="{Binding Imagefile}" />
+                                Source="{Binding Imagefile}"
+                                WidthRequest="80" />
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="1"
