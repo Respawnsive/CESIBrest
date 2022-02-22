@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\iOSAudioService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -286,7 +287,106 @@
   <ItemGroup>
     <BundleResource Include="Resources\yvain.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Implementations\" />
+    <BundleResource Include="Sounds\ah_le_printemps_on_crame_des_mecs.mp3" />
+    <BundleResource Include="Sounds\allez_boire_un_coup.mp3" />
+    <BundleResource Include="Sounds\apres_pour_le_detail_je_sais_pas.mp3" />
+    <BundleResource Include="Sounds\arretez_de_parler_aux_gens.mp3" />
+    <BundleResource Include="Sounds\a_la_volette1.mp3" />
+    <BundleResource Include="Sounds\a_moi_a_lassassin.mp3" />
+    <BundleResource Include="Sounds\a_roulettes.mp3" />
+    <BundleResource Include="Sounds\bien_manger_cest_important.mp3" />
+    <BundleResource Include="Sounds\bonjour_la_pedagogie.mp3" />
+    <BundleResource Include="Sounds\burgonde_ou_anglais.mp3" />
+    <BundleResource Include="Sounds\ca_change_tout.mp3" />
+    <BundleResource Include="Sounds\ca_va_encore_faire_des_discussions_a_rallonge.mp3" />
+    <BundleResource Include="Sounds\ca_va_un_peu_trop_vite_pour_moi.mp3" />
+    <BundleResource Include="Sounds\ca_vous_ennuie_si_je_vomis.mp3" />
+    <BundleResource Include="Sounds\ca_vous_fait_pas_mal_a_la_tete_de_glandouiller.mp3" />
+    <BundleResource Include="Sounds\cest_bien_fait.mp3" />
+    <BundleResource Include="Sounds\cest_debile_cette_histoire.mp3" />
+    <BundleResource Include="Sounds\cest_de_la_merde.mp3" />
+    <BundleResource Include="Sounds\cest_honteux.mp3" />
+    <BundleResource Include="Sounds\cest_moi_ou_il_y_a_une_ambiance_de_merde.mp3" />
+    <BundleResource Include="Sounds\cest_pas_faux1.mp3" />
+    <BundleResource Include="Sounds\cest_pas_faux2.mp3" />
+    <BundleResource Include="Sounds\cest_pas_jo_le_rigolo.mp3" />
+    <BundleResource Include="Sounds\cest_pas_une_sinecure.mp3" />
+    <BundleResource Include="Sounds\cest_plus_filiforme.mp3" />
+    <BundleResource Include="Sounds\cest_vrai_quelle_reste.mp3" />
+    <BundleResource Include="Sounds\commencez_pas_a_me_faire_chier.mp3" />
+    <BundleResource Include="Sounds\crame_ta_famille.mp3" />
+    <BundleResource Include="Sounds\des_vetements.mp3" />
+    <BundleResource Include="Sounds\deux_trous_du_cul_soient_plus_efficaces_qu_un_seul.mp3" />
+    <BundleResource Include="Sounds\dites_tirez_vous.mp3" />
+    <BundleResource Include="Sounds\ecartez-vous.mp3" />
+    <BundleResource Include="Sounds\elle_est_ou_la_poulette.mp3" />
+    <BundleResource Include="Sounds\en_garde_espece_de_vieille_pute_degarnie.mp3" />
+    <BundleResource Include="Sounds\en_garde_ma_mignone.mp3" />
+    <BundleResource Include="Sounds\est_ce_que_peut_servir_elan_pigeon.mp3" />
+    <BundleResource Include="Sounds\faut_ce_qui_faut.mp3" />
+    <BundleResource Include="Sounds\federer_mes_couilles.mp3" />
+    <BundleResource Include="Sounds\he_les_connards_vous_pouvez_faire_griller_un_porcelet.mp3" />
+    <BundleResource Include="Sounds\honnetement_je_connais_pas_le_mot_la.mp3" />
+    <BundleResource Include="Sounds\il_est_pas_beau_mon_graal.mp3" />
+    <BundleResource Include="Sounds\il_pue_il_pete.mp3" />
+    <BundleResource Include="Sounds\insipide.mp3" />
+    <BundleResource Include="Sounds\interprete.mp3" />
+    <BundleResource Include="Sounds\je_ne_mange_pas_de_graines.mp3" />
+    <BundleResource Include="Sounds\je_refuse_daller_me_battre.mp3" />
+    <BundleResource Include="Sounds\je_vois_pas_le_rapport_avec_bretagne.mp3" />
+    <BundleResource Include="Sounds\je_vois_trouble.mp3" />
+    <BundleResource Include="Sounds\jpeux_pas_vous_dire.mp3" />
+    <BundleResource Include="Sounds\lair_idiote.mp3" />
+    <BundleResource Include="Sounds\laissez_le_a_lair.mp3" />
+    <BundleResource Include="Sounds\la_bouffe_est_interdite.mp3" />
+    <BundleResource Include="Sounds\le_graal_par_ci_le_graal_par_la.mp3" />
+    <BundleResource Include="Sounds\le_gras_cest_la_vie.mp3" />
+    <BundleResource Include="Sounds\le_pognon_ca_va_ca_vient.mp3" />
+    <BundleResource Include="Sounds\le_prochain_qui_l_ouvre_galeres_trois_ans.mp3" />
+    <BundleResource Include="Sounds\madresse_pas_la_parole.mp3" />
+    <BundleResource Include="Sounds\mais_allez_chier_dans_une_fiolle.mp3" />
+    <BundleResource Include="Sounds\mais_faut_pas_deconner_ils_y_sont_pour_rien.mp3" />
+    <BundleResource Include="Sounds\mais_je_vous_ai_dis_que_c_etait_important.mp3" />
+    <BundleResource Include="Sounds\mais_je_vous_emmerde_mon_ptit_pote.mp3" />
+    <BundleResource Include="Sounds\mais_qu_est_ce_que_j_en_ai_a_foutre.mp3" />
+    <BundleResource Include="Sounds\mais_tout_a_fait.mp3" />
+    <BundleResource Include="Sounds\mais_ya_rien_a_developper_cest_de_la_merde_cest_tout.mp3" />
+    <BundleResource Include="Sounds\ma_femme_a_pas_de_moustache.mp3" />
+    <BundleResource Include="Sounds\moi_jai_toujours_dit.mp3" />
+    <BundleResource Include="Sounds\moi_jai_toujours_dit2.mp3" />
+    <BundleResource Include="Sounds\moi_je_serais_vous_je_vous_ecouterais.mp3" />
+    <BundleResource Include="Sounds\oh_cest_la_vacherie_ca.mp3" />
+    <BundleResource Include="Sounds\oh_la_vache.mp3" />
+    <BundleResource Include="Sounds\on_en_a_gros.mp3" />
+    <BundleResource Include="Sounds\pas_de_quoi_en_chier_une_galette.mp3" />
+    <BundleResource Include="Sounds\plait_il.mp3" />
+    <BundleResource Include="Sounds\pourquoi_pas1.mp3" />
+    <BundleResource Include="Sounds\pourquoi_pas2.mp3" />
+    <BundleResource Include="Sounds\pourquoi_qu_on_gueule.mp3" />
+    <BundleResource Include="Sounds\ptite_pucelle.mp3" />
+    <BundleResource Include="Sounds\putain_il_est_fort_ce_con.mp3" />
+    <BundleResource Include="Sounds\quand_on_gueule_sans_savoir_pourquoi.mp3" />
+    <BundleResource Include="Sounds\quand_on_se_fache.mp3" />
+    <BundleResource Include="Sounds\rien_a_carer.mp3" />
+    <BundleResource Include="Sounds\si_vous_etes_vendeur.mp3" />
+    <BundleResource Include="Sounds\sortez-vous_les_doigts_du_cul.mp3" />
+    <BundleResource Include="Sounds\soupcon_gros_nul.mp3" />
+    <BundleResource Include="Sounds\sourire_comme_des_glands.mp3" />
+    <BundleResource Include="Sounds\toujours_se_plaindre_pequenauds.mp3" />
+    <BundleResource Include="Sounds\un_bon_quart_dheure.mp3" />
+    <BundleResource Include="Sounds\un_genre_cake.mp3" />
+    <BundleResource Include="Sounds\venir_foutre_votre_merde.mp3" />
+    <BundleResource Include="Sounds\voila_cest_pro.mp3" />
+    <BundleResource Include="Sounds\vous_allez_fermer_vos_mouilles_oui.mp3" />
+    <BundleResource Include="Sounds\vous_deconnez.mp3" />
+    <BundleResource Include="Sounds\vous_etes_completement_con.mp3" />
+    <BundleResource Include="Sounds\vous_la_crachez_votre_pastille.mp3" />
+    <BundleResource Include="Sounds\vous_nous_utilisez_bon_gre_mal_gre_pour_arriver_sur_la_fin.mp3" />
+    <BundleResource Include="Sounds\vous_rigolez_jespere.mp3" />
+    <BundleResource Include="Sounds\vraiment_impressionnant.mp3" />
+    <BundleResource Include="Sounds\wooouuuhouhouhou_c_est_mortel.mp3" />
+    <BundleResource Include="Sounds\zut_la.mp3" />
   </ItemGroup>
 </Project>

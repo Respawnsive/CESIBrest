@@ -11,7 +11,7 @@ namespace KaamelotSampler
         {
             InitializeComponent();
 
-            MainPage = new ListeSaamplesPage();
+            MainPage = new NavigationPage(new ListeSaamplesPage());
         }
 
         protected override void OnStart()

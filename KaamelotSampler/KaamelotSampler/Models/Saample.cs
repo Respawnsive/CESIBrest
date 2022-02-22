@@ -8,16 +8,16 @@ namespace KaamelotSampler.Models
     public class Saample
     {
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Tirade { get; set; }
 
         [JsonProperty("character")]
-        public string Character { get; set; }
+        public string Personnage { get; set; }
 
         [JsonProperty("episode")]
         public string Episode { get; set; }
 
         [JsonProperty("file")]
-        public string File { get; set; }
+        public string Mp3File { get; set; }
 
         [JsonProperty("imagefile")]
         public string Imagefile { get; set; }

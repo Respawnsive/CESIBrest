@@ -2,13 +2,77 @@
 <ContentPage
     x:Class="KaamelotSampler.Views.ListeSaamplesPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="La liste des Saamples !">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem
+            Command="PlayCommand"
+            IconImageSource="ic_play_white.png"
+            Text="play" />
+        <ToolbarItem
+            Command="ShareCommand"
+            IconImageSource="ic_share_white.png"
+            Text="share" />-->
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+            <Grid ColumnDefinitions="*,*, Auto" RowDefinitions="Auto">
+                <Entry
+                    Grid.Column="0"
+                    Placeholder="Rechercher..."
+                    Text="{Binding SearchedText}" />
+                <Picker
+                    Title="Personnage..."
+                    Grid.Column="1"
+                    ItemsSource="{Binding ListPersos}"
+                    SelectedItem="{Binding SelectedPerso}" />
+                <Button Grid.Column="2"
+                        Text="X"
+                        Command="{Binding ClearPersoCommand}"/>
+            </Grid>
+            <CollectionView
+                HorizontalOptions="Fill"
+                ItemsSource="{Binding ListSaamples}"
+                SelectedItem="{Binding SelectedSaample}"
+                SelectionChangedCommand="{Binding SelectSaampleCommand}"
+                SelectionMode="Single"
+                VerticalOptions="Fill">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="5"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="Auto, Auto, Auto">
+                            <Image
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Aspect="AspectFit"
+                                HeightRequest="80"
+                                Source="{Binding Imagefile}" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="Medium"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding Tirade}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                FontSize="Caption"
+                                Text="{Binding Personnage}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontAttributes="Italic"
+                                FontSize="Small"
+                                Text="{Binding Episode}" />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
