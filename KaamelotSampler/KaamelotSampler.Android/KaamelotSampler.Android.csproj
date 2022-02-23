@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Implementations\AndroidAudioService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\MyCustomEntryAndroidRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,6 +3,7 @@
     x:Class="KaamelotSampler.Views.ListeSaamplesPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:KaamelotSampler.CustomCtrl"
     Title="La liste des Saamples !">
     <ContentPage.ToolbarItems>
         <!--<ToolbarItem
@@ -16,8 +17,11 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Grid ColumnDefinitions="*,*, Auto" RowDefinitions="Auto">
-                <Entry
+            <Grid
+                Padding="5"
+                ColumnDefinitions="*,*, Auto"
+                RowDefinitions="Auto">
+                <ctrl:MyCustomEntry
                     Grid.Column="0"
                     Placeholder="Rechercher..."
                     Text="{Binding SearchedText}" />

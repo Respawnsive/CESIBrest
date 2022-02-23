@@ -42,13 +42,12 @@
                         Text="{Binding CurrentSaample.Tirade}" />
                 </Frame>
             </Grid>
+            <Button Command="{Binding PlayMP3Command}" Text="Jouer le MP3" />
+            <Button Command="{Binding PlayTTSCommand}" Text="Jouer le TTS" />
             <Button
-                Command="{Binding PlayMP3Command}"
-                Text="Jouer le MP3"
-                Style="{StaticResource MyButtonStyle}"/>
-            <Button Command="{Binding PlayTTSCommand}" Text="Jouer le TTS" 
-                    Style="{StaticResource MyButtonStyle}"/>
-            <Button Command="{Binding ShareCommand}" Text="Partager le son" />
+                Command="{Binding ShareCommand}"
+                Style="{StaticResource ButtonStyleSecondary}"
+                Text="Partager le son" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
