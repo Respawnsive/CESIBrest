@@ -13,6 +13,7 @@ namespace KaamelotSampler.Datatemplates
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
+            
             var saample = (Saample)item;
             if (saample.Personnage == "Arthur" || saample.Personnage == "Arthur - Le Roi Burgonde" || saample.Personnage == "Léodagan")
             {

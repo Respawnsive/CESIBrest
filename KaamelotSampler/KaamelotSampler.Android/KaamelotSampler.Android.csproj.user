@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <SelectedDevice>Samsung SM-G930F</SelectedDevice>
-    <ActiveDebugProfile>Samsung SM-G930F</ActiveDebugProfile>
-    <DefaultDevice>emulateur-pixel2-api28</DefaultDevice>
+    <SelectedDevice>emulateur-galaxytab10-api28</SelectedDevice>
+    <ActiveDebugProfile>emulateur-galaxytab10-api28</ActiveDebugProfile>
+    <DefaultDevice>emulateur-galaxytab10-api28</DefaultDevice>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>

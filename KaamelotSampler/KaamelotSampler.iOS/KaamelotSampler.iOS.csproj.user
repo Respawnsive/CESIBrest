@@ -2,8 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
-    <SelectedDevice>iPhone 11 iOS 15.2</SelectedDevice>
-    <ActiveDebugProfile>iPhone 11 iOS 15.2</ActiveDebugProfile>
-    <DefaultDevice>iPhone 11 iOS 15.2</DefaultDevice>
+    <SelectedDevice>iPad Pro %2811-inch%29 %283rd generation%29 iOS 15.2</SelectedDevice>
+    <ActiveDebugProfile>iPad Pro %2811-inch%29 %283rd generation%29 iOS 15.2</ActiveDebugProfile>
+    <DefaultDevice>iPad Pro %2811-inch%29 %283rd generation%29 iOS 15.2</DefaultDevice>
+    <DeveloperId />
+    <DevelopmentTeamId />
   </PropertyGroup>
 </Project>

@@ -13,8 +13,15 @@ namespace KaamelotSampler
         public KaamelotApp()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new ListeSaamplesPage());
+            if (Xamarin.Forms.Device.Idiom == TargetIdiom.Phone)
+            {
+                MainPage = new NavigationPage(new ListeSaamplesPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new ListeSaamplesPage());
+            }
+            
         }
 
         protected override void OnStart()
