@@ -3,6 +3,8 @@ using KaamelotSampler.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Linq;
+using Microsoft.AppCenter.Analytics;
+using System.Collections.Generic;
 
 namespace KaamelotSampler.ViewModels
 {
@@ -49,6 +51,10 @@ namespace KaamelotSampler.ViewModels
         {
             var audioService = DependencyService.Get<IAudioService>();
             audioService.PlayMp3(CurrentSaample.Mp3File);
+            //Track KPI
+            Dictionary<string, string> datas = new Dictionary<string, string>();
+            datas.Add("MP3File", CurrentSaample.Mp3File);
+            Analytics.TrackEvent("Play MP3", datas);
         }
 
         private async void PlayTTS()
@@ -60,6 +66,10 @@ namespace KaamelotSampler.ViewModels
             options.Pitch = 1.0f;
             options.Locale = currentLanguage;
             await TextToSpeech.SpeakAsync(CurrentSaample.Tirade, options);
+            //Track KPI
+            Dictionary<string, string> datas = new Dictionary<string, string>();
+            datas.Add("Tirade", CurrentSaample.Tirade);
+            Analytics.TrackEvent("Play TTS", datas);
         }
 
         private async void Share()

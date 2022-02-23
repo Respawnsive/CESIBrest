@@ -42,48 +42,17 @@
                 WidthRequest="80"
                 Color="Red" />
             <CollectionView
+                Margin="10,0"
                 HorizontalOptions="Fill"
+                ItemTemplate="{StaticResource PersonnageDataTemplateSelector}"
                 ItemsSource="{Binding FilteredSaamples}"
                 SelectedItem="{Binding SelectedSaample}"
                 SelectionChangedCommand="{Binding SelectSaampleCommand}"
                 SelectionMode="Single"
                 VerticalOptions="Fill">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid
-                            Padding="5"
-                            ColumnDefinitions="Auto, *"
-                            RowDefinitions="Auto, Auto, Auto">
-                            <Image
-                                Grid.Row="0"
-                                Grid.RowSpan="3"
-                                Grid.Column="0"
-                                Aspect="AspectFit"
-                                HeightRequest="80"
-                                Source="{Binding Imagefile}"
-                                WidthRequest="80" />
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                FontSize="Medium"
-                                LineBreakMode="WordWrap"
-                                Text="{Binding Tirade}" />
-                            <Label
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                FontAttributes="Bold"
-                                FontSize="Caption"
-                                Text="{Binding Personnage}" />
-                            <Label
-                                Grid.Row="2"
-                                Grid.Column="1"
-                                FontAttributes="Italic"
-                                FontSize="Small"
-                                Text="{Binding Episode}" />
-
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>

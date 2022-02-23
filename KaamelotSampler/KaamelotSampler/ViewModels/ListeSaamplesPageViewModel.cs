@@ -2,6 +2,7 @@
 using KaamelotSampler.Models;
 using KaamelotSampler.Services;
 using KaamelotSampler.Views;
+using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,14 +113,24 @@ namespace KaamelotSampler.ViewModels
         private async Task LoadDatas()
         {
             IsBusy = true;
-            DataService datas = new DataService();
-            FilteredSaamples = AllSamples = await datas.GetSaamplesFromLocalJsonAsync();
-            ListPersos = AllSamples
-                .Select(x => x.Personnage)
-                .Distinct()
-                .OrderBy(x => x)
-                .ToList();
-            IsBusy = false;
+            try
+            {
+                DataService datas = new DataService();
+                FilteredSaamples = AllSamples = await datas.GetSaamplesFromLocalJsonAsync();
+                ListPersos = AllSamples
+                    .Select(x => x.Personnage)
+                    .Distinct()
+                    .OrderBy(x => x)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         private async Task SelectSaample()
@@ -129,27 +140,38 @@ namespace KaamelotSampler.ViewModels
 
         private void FilterSaamples(string searchedText, string personnage)
         {
-            if (String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
+            try
             {
-                //RAZ
-                FilteredSaamples = AllSamples.OrderBy(x=> x.Episode).ToList();
+                if (searchedText == "toto")
+                {
+                    throw new ArgumentOutOfRangeException("searchvalue", "user search toto");
+                }
+                else if (String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
+                {
+                    //RAZ
+                    FilteredSaamples = AllSamples.OrderBy(x => x.Episode).ToList();
+                }
+                else if (!String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
+                {
+                    //uniquement searchtext
+                    FilteredSaamples = AllSamples.Where(x => x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
+                }
+                else if (String.IsNullOrWhiteSpace(searchedText) && !String.IsNullOrWhiteSpace(personnage))
+                {
+                    //uniquement personnage
+                    FilteredSaamples = AllSamples.Where(x => x.Personnage == personnage).OrderBy(x => x.Episode).ToList();
+                }
+                else
+                {
+                    //Searchtext ET personnage
+                    FilteredSaamples = AllSamples
+                        .Where(x => x.Personnage == personnage
+                                && x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
+                }
             }
-            else if (!String.IsNullOrWhiteSpace(searchedText) && String.IsNullOrWhiteSpace(personnage))
+            catch(Exception ex)
             {
-                //uniquement searchtext
-                FilteredSaamples = AllSamples.Where(x => x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
-            }
-            else if (String.IsNullOrWhiteSpace(searchedText) && !String.IsNullOrWhiteSpace(personnage))
-            {
-                //uniquement personnage
-                FilteredSaamples = AllSamples.Where(x => x.Personnage == personnage).OrderBy(x => x.Episode).ToList();
-            }
-            else
-            {
-                //Searchtext ET personnage
-                FilteredSaamples = AllSamples
-                    .Where(x => x.Personnage == personnage 
-                            && x.Tirade.ToLower().Contains(searchedText.ToLower())).OrderBy(x => x.Episode).ToList();
+                Crashes.TrackError(ex);
             }
         }
 

@@ -2,8 +2,10 @@
 <Application
     x:Class="KaamelotSampler.KaamelotApp"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dtpl="clr-namespace:KaamelotSampler.Datatemplates">
     <Application.Resources>
+
         <Color x:Key="PrimaryColor">#2D3CB8</Color>
         <Color x:Key="SecondaryColor">#BB9824</Color>
         <Color x:Key="BackgroundColor">#4C4D51</Color>
@@ -19,7 +21,6 @@
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="TextColor" Value="{StaticResource TextColor}" />
         </Style>
-
         <Style x:Key="ButtonStyleSecondary" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
             <Setter Property="BorderColor" Value="{StaticResource SecondaryColor}" />
@@ -27,6 +28,96 @@
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="TextColor" Value="{StaticResource TextColor}" />
         </Style>
+
+        <DataTemplate x:Key="NormalDatatemplate">
+            <Frame
+                Padding="5"
+                BackgroundColor="{StaticResource BackgroundColor}"
+                BorderColor="{StaticResource SecondaryColor}"
+                CornerRadius="10"
+                HasShadow="True">
+                <Grid
+                    Padding="5"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="Auto, Auto, Auto">
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="3"
+                        Grid.Column="0"
+                        Aspect="AspectFit"
+                        HeightRequest="80"
+                        Source="{Binding Imagefile}"
+                        WidthRequest="80" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontSize="Medium"
+                        LineBreakMode="WordWrap"
+                        Text="{Binding Tirade}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        Text="{Binding Personnage}" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontAttributes="Italic"
+                        FontSize="Small"
+                        Text="{Binding Episode}" />
+
+                </Grid>
+            </Frame>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RoyalDatatemplate">
+            <Frame
+                Padding="5"
+                BackgroundColor="LightGray"
+                BorderColor="{StaticResource SecondaryColor}"
+                CornerRadius="10"
+                HasShadow="True">
+                <Grid
+                    Padding="5"
+                    ColumnDefinitions="*, Auto"
+                    RowDefinitions="Auto, Auto, Auto">
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="3"
+                        Grid.Column="1"
+                        Aspect="AspectFit"
+                        HeightRequest="80"
+                        Source="{Binding Imagefile}"
+                        WidthRequest="80" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        FontSize="Medium"
+                        LineBreakMode="WordWrap"
+                        Text="{Binding Tirade}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{Binding Personnage}"
+                        TextColor="{StaticResource PrimaryColor}" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        FontAttributes="Italic"
+                        FontSize="Small"
+                        Text="{Binding Episode}" />
+
+                </Grid>
+            </Frame>
+        </DataTemplate>
+
+        <dtpl:PersonnageDataTemplateSelector
+            x:Key="PersonnageDataTemplateSelector"
+            NormalDataTemplate="{StaticResource NormalDatatemplate}"
+            RoyalDataTemplate="{StaticResource RoyalDatatemplate}" />
 
     </Application.Resources>
 </Application>
